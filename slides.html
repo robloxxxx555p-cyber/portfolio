@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLIDES · SANZ GOKU PORTOFOLIO BISNIS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#e60012;
+  --red-deep:#a3000c;
+  --black:#0b0b0d;
+  --card:#18181f;
+  --white:#f6f4ef;
+  --yellow:#f1e05a;
+  --border:#3a3a45;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:'Barlow Condensed',Arial,sans-serif;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  user-select:none;
+}
+.display{font-family:'Archivo Black',Impact,sans-serif;}
+
+/* TOP NAVBAR */
+#nav-bar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 24px;background:#111116;border-bottom:2px solid var(--red);
+  z-index:10;
+}
+.brand{font-size:18px;font-weight:700;letter-spacing:.12em;display:flex;align-items:center;gap:12px;}
+.brand span.tag{background:var(--red);color:#fff;padding:3px 10px;font-size:12px;transform:skewX(-10deg);}
+.nav-actions{display:flex;align-items:center;gap:16px;}
+.btn{
+  background:var(--card);color:var(--white);border:1px solid var(--border);
+  padding:8px 16px;font-family:inherit;font-size:14px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
+  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+  transition:.15s;transform:skewX(-6deg);
+}
+.btn:hover{background:var(--red);color:#fff;border-color:var(--red);}
+.btn.primary{background:var(--red);border-color:var(--red);}
+.btn.primary:hover{background:#ff1e2d;}
+
+/* VIEWER STAGE */
+#stage{
+  flex:1;position:relative;display:flex;justify-content:center;align-items:center;
+  padding:16px;overflow:hidden;
+}
+.slide-frame{
+  width:min(1200px, 94vw);
+  aspect-ratio:16 / 9;
+  background:#0e0e11;
+  border:2px solid var(--border);
+  box-shadow:0 12px 36px rgba(0,0,0,.7);
+  position:relative;
+  overflow:hidden;
+  display:none;
+}
+.slide-frame.active{display:flex;flex-direction:column;}
+
+/* SLIDE HEADER & FOOTER */
+.slide-header{
+  padding:16px 28px 8px;display:flex;justify-content:space-between;align-items:flex-start;
+  border-bottom:1px solid rgba(230,0,18,.35);
+}
+.slide-category{
+  background:var(--red);color:#fff;padding:4px 12px;font-size:12px;font-weight:700;
+  display:inline-block;letter-spacing:.14em;margin-bottom:6px;
+}
+.slide-title{font-size:clamp(20px,2.4vw,28px);text-transform:uppercase;color:#fff;line-height:1.1;}
+.slide-footer{
+  padding:10px 28px;background:#09090c;border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;font-size:12px;letter-spacing:.15em;
+  color:#9a9aab;margin-top:auto;
+}
+.slide-content{flex:1;padding:16px 28px;overflow-y:auto;}
+
+/* SLIDE 1 COVER */
+.cover-wrap{display:flex;flex-direction:column;justify-content:center;height:100%;padding:10px 20px;}
+.cover-tag{background:var(--red);color:#fff;padding:5px 14px;font-size:13px;display:inline-block;margin-bottom:12px;letter-spacing:.2em;}
+.cover-title{font-size:clamp(42px,5.5vw,72px);color:#fff;line-height:.95;margin-bottom:14px;}
+.cover-badge{border:1.5px solid var(--yellow);background:var(--card);color:var(--yellow);padding:8px 18px;display:inline-block;font-size:18px;font-weight:700;margin-bottom:16px;}
+.cover-desc{max-width:680px;font-size:15px;line-height:1.45;color:#e2e2ec;margin-bottom:20px;}
+.cover-author{background:var(--card);border-left:4px solid var(--red);padding:12px 18px;max-width:560px;}
+
+/* SLIDE 2 PROFILE */
+.profile-grid{display:grid;grid-template-columns:220px 1fr;gap:22px;height:100%;}
+.polaroid{background:#fff;color:#111;padding:8px;border:2px solid var(--red);text-align:center;box-shadow:6px 6px 0 rgba(0,0,0,.5);height:max-content;}
+.polaroid img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;margin-bottom:8px;}
+.polaroid h4{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;}
+.polaroid p{font-size:11px;color:#555;}
+.exec-summary{background:var(--card);border:1px solid var(--red);padding:12px 16px;margin-bottom:14px;font-size:13px;line-height:1.4;}
+.pillars-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.pillar-card{background:var(--card);border:1px solid var(--border);padding:10px 14px;}
+.pillar-card h4{color:var(--red);font-size:13px;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.pillar-card ul{list-style:none;font-size:11.5px;color:#dedee8;line-height:1.4;}
+.pillar-card li::before{content:"• ";color:var(--yellow);}
+
+/* SLIDE 3 SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;height:100%;}
+.service-card{background:var(--card);border:1px solid var(--border);padding:14px 12px;display:flex;flex-direction:column;}
+.service-card.active-s{border-top:3px solid var(--red);}
+.service-card.plan-s{border-top:3px solid var(--yellow);}
+.service-status{font-size:9.5px;font-weight:800;letter-spacing:.14em;margin-bottom:8px;}
+.service-status.red{color:var(--red);}
+.service-status.yellow{color:var(--yellow);}
+.service-card h4{font-size:14px;margin-bottom:10px;line-height:1.2;}
+.service-card ul{list-style:none;font-size:11px;color:#d2d2dd;line-height:1.4;}
+.service-card li{margin-bottom:6px;}
+.service-card li::before{content:"▶ ";color:var(--red);font-size:8px;}
+
+/* SLIDE 4 OPERATIONAL */
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.step-card{background:var(--card);border-left:3px solid var(--red);padding:12px 14px;}
+.step-num{font-size:11px;color:var(--red);font-weight:800;margin-bottom:4px;}
+.step-card h4{font-size:13px;margin-bottom:6px;}
+.step-card p{font-size:11px;color:#bdbdc8;line-height:1.35;}
+
+/* SLIDE 5 MARKETING & CS */
+.mkt-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.mkt-box{background:var(--card);border:1px solid var(--red);padding:14px 18px;}
+.mkt-box h4{color:var(--red);font-size:15px;margin-bottom:12px;letter-spacing:.1em;}
+.mkt-item{margin-bottom:10px;}
+.mkt-item h5{font-size:12px;color:#fff;}
+.mkt-item p{font-size:11px;color:#b2b2c0;}
+
+/* SLIDE 6 TECH */
+.tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+
+/* SLIDE 7 ROADMAP */
+.road-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.road-card{background:var(--card);border:1px solid var(--border);padding:10px 14px;display:flex;gap:12px;align-items:flex-start;}
+.road-num{font-size:18px;color:var(--red);font-weight:900;}
+
+/* SLIDE 8 CLOSING */
+.close-wrap{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;height:100%;padding:20px;}
+.close-box{background:var(--card);border:2px solid var(--red);padding:24px 32px;max-width:800px;margin-bottom:20px;}
+.close-motto{font-size:24px;color:var(--yellow);margin-top:14px;font-weight:900;}
+.close-contact{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;font-size:13px;}
+.chip{background:#111;border:1px solid var(--border);padding:6px 14px;border-radius:4px;}
+
+/* BOTTOM CONTROLS */
+#controls{
+  display:flex;justify-content:center;align-items:center;gap:20px;
+  padding:12px;background:#111116;border-top:1px solid var(--border);
+  z-index:10;
+}
+.page-indicator{font-size:14px;letter-spacing:.15em;font-weight:700;color:var(--yellow);}
+
+/* MOBILE RESPONSIVE SLIDES */
+@media (max-width:768px){
+  body{height:auto;min-height:100vh;overflow-y:auto;}
+  #stage{padding:8px;height:auto;}
+  .slide-frame{
+    width:100%;
+    aspect-ratio:auto;
+    min-height:76vh;
+  }
+  .slide-header{padding:12px 14px 6px;}
+  .slide-content{padding:10px 14px;}
+  .slide-footer{padding:8px 14px;font-size:10px;}
+  .profile-grid{grid-template-columns:1fr;gap:12px;}
+  .polaroid{width:160px;margin:0 auto 10px auto;}
+  .pillars-grid{grid-template-columns:1fr;gap:8px;}
+  .services-grid{grid-template-columns:1fr;gap:10px;}
+  .steps-grid{grid-template-columns:1fr;gap:8px;}
+  .mkt-grid{grid-template-columns:1fr;gap:10px;}
+  .tech-grid{grid-template-columns:1fr;gap:10px;}
+  .road-grid{grid-template-columns:1fr;gap:8px;}
+  .cover-title{font-size:36px;margin-bottom:8px;}
+  .cover-badge{font-size:15px;padding:6px 12px;}
+  .cover-desc{font-size:13px;}
+  .close-box{padding:16px 18px;}
+  .close-motto{font-size:18px;}
+}
+</style>
+</head>
+<body>
+
+<div id="nav-bar">
+  <div class="brand">
+    <a href="index.html" style="color:#fff;text-decoration:none;" class="display">SANZ GOKU</a>
+    <span class="tag">SLIDES PRESENTASI</span>
+  </div>
+  <div class="nav-actions">
+    <a href="index.html" class="btn">◀ Menu Portofolio</a>
+    <a href="Portofolio_Bisnis_SANZ_GOKU.pptx" download class="btn primary">⬇ Download PPTX (8 Slide)</a>
+  </div>
+</div>
+
+<div id="stage">
+
+  <!-- SLIDE 1 -->
+  <div class="slide-frame active" id="slide-1">
+    <div class="slide-content">
+      <div class="cover-wrap">
+        <span class="cover-tag display">PORTOFOLIO BISNIS DIGITAL</span>
+        <h1 class="cover-title display">SANZ GOKU</h1>
+        <div class="cover-badge display">« Satu Bot, Banyak Solusi »</div>
+        <p class="cover-desc">Penyedia produk & layanan digital, infrastruktur server Linux, panel Pterodactyl, nomor virtual OTP, serta solusi otomatisasi transaksi berbasis bot Telegram (@Sanzstrnokosmumerbot).</p>
+        <div class="cover-author">
+          <div style="font-size:11px;color:var(--yellow);font-weight:700;" class="display">DISUSUN OLEH:</div>
+          <div style="font-size:17px;font-weight:800;" class="display">Muhammad Sandika Akbar (Sanz)</div>
+          <div style="font-size:12px;color:#aaa;margin-top:4px;">Domain: snz.my.id · Bot: @Sanzstrnokosmumerbot · Admin: @Sanzxgoku</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>SANZ GOKU · Satu Bot, Banyak Solusi · snz.my.id</span>
+      <span class="display">SLIDE 01 / 08</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 2 -->
+  <div class="slide-frame" id="slide-2">
+    <div class="slide-header">
+      <div>
+        <span class="slide-category display">02 // IDENTITAS & NILAI</span>
+        <h2 class="slide-title display">PROFIL SANZ GOKU</h2>
+      </div>
+    </div>
+    <div class="slide-content">
+      <div class="profile-grid">
+        <div class="polaroid">
+          <img src="assets/me.jpg" alt="Muhammad Sandika Akbar">
+          <h4>M. Sandika Akbar</h4>
+          <p>Founder / Owner (Sanz)<br>snz.my.id</p>
+        </div>
+        <div>
+          <div class="exec-summary">
+            <strong style="color:var(--yellow);" class="display">RINGKASAN EKSEKUTIF:</strong> SANZ GOKU adalah usaha digital aktif yang berfokus pada penyediaan produk & layanan digital, layanan server, serta solusi teknologi praktis. Usaha ini hadir untuk menjawab kebutuhan pelanggan akan hosting stabil, nomor virtual OTP cepat via bot Telegram, dan alur transaksi transparan.
+          </div>
+          <div class="pillars-grid">
+            <div class="pillar-card">
+              <h4 class="display">■ BIDANG USAHA</h4>
+              <ul>
+                <li>Penjualan & konfigurasi VPS Linux</li>
+                <li>Instalasi panel Pterodactyl & hosting</li>
+                <li>Layanan nomor virtual OTP (RumahOTP)</li>
+                <li>Script, subdomain, & produk digital</li>
+              </ul>
+            </div>
+            <div class="pillar-card">
+              <h4 class="display">■ KEBUTUHAN PELANGGAN</h4>
+              <ul>
+                <li>Infrastruktur server fleksibel & stabil</li>
+                <li>Verifikasi akun instan tanpa nomor pribadi</li>
+                <li>Tools & script digital praktis</li>
+                <li>Pemesanan responsif dibantu admin</li>
+              </ul>
+            </div>
+            <div class="pillar-card">
+              <h4 class="display">■ TUJUAN PENDIRIAN</h4>
+              <ul>
+                <li>Solusi teknologi terjangkau & mudah diakses</li>
+                <li>Ekosistem mandiri berbasis efisiensi server</li>
+                <li>Otomatisasi pelayanan pelanggan bertahap</li>
+                <li>Penyedia layanan digital yang dapat diandalkan</li>
+              </ul>
+            </div>
+            <div class="pillar-card">
+              <h4 class="display">■ NILAI UTAMA BISNIS</h4>
+              <ul>
+                <li>Transparansi spesifikasi tanpa klaim palsu</li>
+                <li>Kecepatan penanganan pesanan via Telegram</li>
+                <li>Inovasi bot Telegram (@Sanzstrnokosmumerbot)</li>
+                <li>Dukungan teknis responsif saat ada kendala</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>SANZ GOKU · Satu Bot, Banyak Solusi · snz.my.id</span>
+      <span class="display">SLIDE 02 / 08</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 3 -->
+  <div class="slide-frame" id="slide-3">
+    <div class="slide-header">
+      <div>
+        <span class="slide-category display">03 // KATALOG BISNIS</span>
+        <h2 class="slide-title display">PRODUK DAN LAYANAN</h2>
+      </div>
+    </div>
+    <div class="slide-content">
+      <div style="font-size:11px;color:var(--yellow);margin-bottom:12px;background:#18181f;padding:6px 12px;border:1px solid var(--border);">
+        CATATAN STATUS: Layanan dikelompokkan berdasarkan kategori. Membedakan layanan aktif berjualan vs tahap rencana/pengembangan.
+      </div>
+      <div class="services-grid">
+        <div class="service-card active-s">
+          <div class="service-status red display">[AKTIF BERJUALAN]</div>
+          <h4 class="display">VPS & SERVER LINUX</h4>
+          <ul>
+            <li>Penjualan VPS Linux (berbagai spek)</li>
+            <li>Setup & manajemen panel Pterodactyl</li>
+            <li>Pengelolaan konfigurasi dasar server Linux</li>
+            <li>Hosting server sesuai stok</li>
+          </ul>
+        </div>
+        <div class="service-card active-s">
+          <div class="service-status red display">[AKTIF BERJUALAN]</div>
+          <h4 class="display">NOKOS & LAYANAN OTP</h4>
+          <ul>
+            <li>Nomor virtual verifikasi akun aplikasi</li>
+            <li>Tersedia via Bot @Sanzstrnokosmumerbot</li>
+            <li>Integrasi penyedia resmi (RumahOTP)</li>
+            <li>Aktivasi akun aman tanpa nomor pribadi</li>
+          </ul>
+        </div>
+        <div class="service-card active-s">
+          <div class="service-status red display">[AKTIF / ON-DEMAND]</div>
+          <h4 class="display">PRODUK DIGITAL</h4>
+          <ul>
+            <li>Penjualan script & file produk digital</li>
+            <li>Layanan penyediaan custom subdomain</li>
+            <li>Boost media sosial & kebutuhan akun</li>
+            <li>Top up saldo & layanan digital pelengkap</li>
+          </ul>
+        </div>
+        <div class="service-card plan-s">
+          <div class="service-status yellow display">[PENGEMBANGAN FITUR]</div>
+          <h4 class="display">BOT TELEGRAM</h4>
+          <ul>
+            <li>Bot resmi: @Sanzstrnokosmumerbot</li>
+            <li>Katalog interaktif otomatis via chat</li>
+            <li>Cek status transaksi & saldo real-time</li>
+            <li>Rencana integrasi pembayaran QRIS</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>SANZ GOKU · Satu Bot, Banyak Solusi · snz.my.id</span>
+      <span class="display">SLIDE 03 / 08</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 4 -->
+  <div class="slide-frame" id="slide-4">
+    <div class="slide-header">
+      <div>
+        <span class="slide-category display">04 // ALUR PELAYANAN</span>
+        <h2 class="slide-title display">SISTEM OPERASIONAL BISNIS</h2>
+      </div>
+    </div>
+    <div class="slide-content">
+      <div style="font-size:12px;color:#aaa;margin-bottom:12px;">
+        Alur Pelayanan Pelanggan 6 Langkah — Menggabungkan penanganan admin aktif dengan persiapan otomasi bot (@Sanzstrnokosmumerbot).
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num display">LANGKAH 01</div>
+          <h4 class="display">KATALOG & INFO</h4>
+          <p>Pelanggan melihat daftar layanan, spesifikasi, dan stok via kanal resmi atau bot Telegram.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num display">LANGKAH 02</div>
+          <h4 class="display">PEMILIHAN LAYANAN</h4>
+          <p>Pelanggan memilih jenis layanan (VPS/OTP/Produk Digital) dan menyampaikan kebutuhan ke admin/bot.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num display">LANGKAH 03</div>
+          <h4 class="display">VERIFIKASI ADMIN</h4>
+          <p>Admin memeriksa rincian pesanan, kesiapan server/nomor, dan memberikan instruksi pembayaran.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num display">LANGKAH 04</div>
+          <h4 class="display">PEMBAYARAN</h4>
+          <p>Pelanggan melakukan transfer sesuai nominal yang disepakati dan diverifikasi secara transparan.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num display">LANGKAH 05</div>
+          <h4 class="display">PEMROSESAN SISTEM</h4>
+          <p>Pesanan diproses langsung melalui sistem internal server Linux atau penyedia layanan terkait.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num display">LANGKAH 06</div>
+          <h4 class="display">SERAH TERIMA & CS</h4>
+          <p>Hasil layanan diserahkan ke pelanggan (kredensial/kode OTP) disertai bantuan jika berkendala.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>SANZ GOKU · Satu Bot, Banyak Solusi · snz.my.id</span>
+      <span class="display">SLIDE 04 / 08</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 5 -->
+  <div class="slide-frame" id="slide-5">
+    <div class="slide-header">
+      <div>
+        <span class="slide-category display">05 // PEMASARAN & CS</span>
+        <h2 class="slide-title display">STRATEGI PEMASARAN & PELAYANAN</h2>
+      </div>
+    </div>
+    <div class="slide-content">
+      <div class="mkt-grid">
+        <div class="mkt-box">
+          <h4 class="display">STRATEGI PEMASARAN DIGITAL</h4>
+          <div class="mkt-item">
+            <h5 class="display">■ Promosi Melalui Kanal Digital</h5>
+            <p>Mengenalkan layanan melalui media sosial dan komunitas online teknologi/gaming.</p>
+          </div>
+          <div class="mkt-item">
+            <h5 class="display">■ Katalog Informasi yang Jelas</h5>
+            <p>Menyajikan spesifikasi layanan dan panduan pemesanan tanpa klaim berlebihan.</p>
+          </div>
+          <div class="mkt-item">
+            <h5 class="display">■ Optimalisasi Telegram</h5>
+            <p>Menjadikan bot (@Sanzstrnokosmumerbot) dan admin (@Sanzxgoku) sebagai pusat interaksi cepat.</p>
+          </div>
+          <div class="mkt-item">
+            <h5 class="display">■ Harga Kompetitif & Realistis</h5>
+            <p>Menetapkan harga rasional sesuai spesifikasi server tanpa perang harga merusak.</p>
+          </div>
+        </div>
+        <div class="mkt-box">
+          <h4 class="display">PELAYANAN & KEPERCAYAAN</h4>
+          <div class="mkt-item">
+            <h5 class="display">■ Komunikasi Responsif</h5>
+            <p>Admin merespon pesan, pertanyaan spesifikasi, dan pesanan secara cepat serta lugas.</p>
+          </div>
+          <div class="mkt-item">
+            <h5 class="display">■ Bantuan & Troubleshooting</h5>
+            <p>Mendampingi pelanggan jika menemui kendala instalasi panel atau keterlambatan OTP.</p>
+          </div>
+          <div class="mkt-item">
+            <h5 class="display">■ Transparansi Stok & Server</h5>
+            <p>Memberitahukan ketersediaan kapasitas server apa adanya demi menjaga kepuasan.</p>
+          </div>
+          <div class="mkt-item">
+            <h5 class="display">■ Membangun Loyalitas</h5>
+            <p>Pelayanan jujur dan tuntas menjadi fondasi repeat order tanpa manipulasi testimoni.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>SANZ GOKU · Satu Bot, Banyak Solusi · snz.my.id</span>
+      <span class="display">SLIDE 05 / 08</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 6 -->
+  <div class="slide-frame" id="slide-6">
+    <div class="slide-header">
+      <div>
+        <span class="slide-category display">06 // STACK & INFRASTRUKTUR</span>
+        <h2 class="slide-title display">TEKNOLOGI PENDUKUNG BISNIS</h2>
+      </div>
+    </div>
+    <div class="slide-content">
+      <div class="tech-grid">
+        <div class="mkt-box">
+          <h4 class="display">TEKNOLOGI AKTIF DIGUNAKAN</h4>
+          <div class="mkt-item">
+            <h5 class="display">■ Linux VPS (Ubuntu / Debian)</h5>
+            <p>Infrastruktur dasar server untuk hosting layanan, menjalankan script, dan pengelolaan port.</p>
+          </div>
+          <div class="mkt-item">
+            <h5 class="display">■ JavaScript & Node.js</h5>
+            <p>Bahasa pemrograman dan runtime utama dalam membangun logika bot dan komunikasi API.</p>
+          </div>
+          <div class="mkt-item">
+            <h5 class="display">■ Telegram Bot API</h5>
+            <p>Protokol penghubung untuk interaksi chat bot @Sanzstrnokosmumerbot, menu tombol, & notifikasi.</p>
+          </div>
+          <div class="mkt-item">
+            <h5 class="display">■ Pterodactyl Panel</h5>
+            <p>Sistem panel web berbasis Docker untuk kemudahan kontrol server game dan bot.</p>
+          </div>
+          <div class="mkt-item">
+            <h5 class="display">■ Cloudflare DNS & Proxy</h5>
+            <p>Manajemen domain snz.my.id, proteksi serangan DDoS, dan routing subdomain.</p>
+          </div>
+        </div>
+        <div class="mkt-box" style="border-color:var(--yellow);">
+          <h4 class="display" style="color:var(--yellow);">INTEGRASI API & PROYEK RISET</h4>
+          <div class="mkt-item">
+            <h5 class="display">◆ Integrasi API Pihak Ketiga (RumahOTP)</h5>
+            <p>Sinkronisasi stok dan eksekusi nomor OTP secara otomatis via REST API.</p>
+          </div>
+          <div class="mkt-item">
+            <h5 class="display">◆ Gateway Pembayaran QRIS (Pakasir)</h5>
+            <p>Perencanaan sistem verifikasi pembayaran QRIS instan untuk bot Telegram.</p>
+          </div>
+          <div class="mkt-item">
+            <h5 class="display">◆ Proyek SOTP (sxgotp)</h5>
+            <p>Riset terpisah website layanan OTP berbasis Next.js, React, Tailwind CSS, & Supabase.</p>
+          </div>
+          <div class="mkt-item">
+            <h5 class="display">◆ Manfaat Utama Teknologi</h5>
+            <p>Efisiensi operasional admin, kecepatan transaksi detik, dan skalabilitas sistem.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>SANZ GOKU · Satu Bot, Banyak Solusi · snz.my.id</span>
+      <span class="display">SLIDE 06 / 08</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 7 -->
+  <div class="slide-frame" id="slide-7">
+    <div class="slide-header">
+      <div>
+        <span class="slide-category display">07 // ROADMAP BISNIS</span>
+        <h2 class="slide-title display">VISI DAN RENCANA PENGEMBANGAN</h2>
+      </div>
+    </div>
+    <div class="slide-content">
+      <div style="font-size:12px;color:#aaa;margin-bottom:12px;">Rencana Strategis Masa Depan — Disajikan sebagai visi pengembangan terukur.</div>
+      <div class="road-grid">
+        <div class="road-card">
+          <div class="road-num display">01</div>
+          <div>
+            <h5 class="display">EKSPANSI LAYANAN DIGITAL</h5>
+            <p style="font-size:11px;color:#bbb;">Memperluas katalog produk digital, menambah varian spesifikasi VPS, dan adaptasi tren pasar.</p>
+          </div>
+        </div>
+        <div class="road-card">
+          <div class="road-num display">02</div>
+          <div>
+            <h5 class="display">PENINGKATAN MUTU LAYANAN</h5>
+            <p style="font-size:11px;color:#bbb;">Menjaga kestabilan uptime server, kecepatan delivery pesanan, dan evaluasi kepuasan berkala.</p>
+          </div>
+        </div>
+        <div class="road-card">
+          <div class="road-num display">03</div>
+          <div>
+            <h5 class="display">OTOMASI BOT (@Sanzstrnokosmumerbot)</h5>
+            <p style="font-size:11px;color:#bbb;">Menyelesaikan integrasi pemesanan mandiri, verifikasi QRIS otomatis, dan penyerahan kredensial langsung.</p>
+          </div>
+        </div>
+        <div class="road-card">
+          <div class="road-num display">04</div>
+          <div>
+            <h5 class="display">SISTEM PENCATATAN & PEMBUKUAN</h5>
+            <p style="font-size:11px;color:#bbb;">Menerapkan pencatatan transaksi terstruktur untuk memantau performa layanan dan arus keuangan rapi.</p>
+          </div>
+        </div>
+        <div class="road-card">
+          <div class="road-num display">05</div>
+          <div>
+            <h5 class="display">KEAMANAN & KEANDALAN SISTEM</h5>
+            <p style="font-size:11px;color:#bbb;">Memperkuat proteksi firewall server Linux, manajemen API key yang aman, serta backup rutin.</p>
+          </div>
+        </div>
+        <div class="road-card">
+          <div class="road-num display">06</div>
+          <div>
+            <h5 class="display">EKOSISTEM BERKELANJUTAN</h5>
+            <p style="font-size:11px;color:#bbb;">Mengintegrasikan website (snz.my.id), bot Telegram, dan panel server menjadi satu ekosistem stabil.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>SANZ GOKU · Satu Bot, Banyak Solusi · snz.my.id</span>
+      <span class="display">SLIDE 07 / 08</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 8 -->
+  <div class="slide-frame" id="slide-8">
+    <div class="slide-header">
+      <div>
+        <span class="slide-category display">08 // PENUTUP</span>
+        <h2 class="slide-title display">KESIMPULAN BISNIS</h2>
+      </div>
+    </div>
+    <div class="slide-content">
+      <div class="close-wrap">
+        <div class="close-box">
+          <p style="font-size:14px;line-height:1.5;">SANZ GOKU merupakan usaha digital yang berfokus pada produk dan layanan teknologi. Melalui pengembangan layanan server, produk digital, dan otomatisasi menggunakan bot Telegram (@Sanzstrnokosmumerbot), bisnis ini diarahkan untuk memberikan pelayanan yang praktis, transparan, dan terus berkembang sesuai kebutuhan pelanggan.</p>
+          <div class="close-motto display">“ SANZ GOKU — Satu Bot, Banyak Solusi. ”</div>
+        </div>
+        <div class="close-contact">
+          <span class="chip">Owner: Muhammad Sandika Akbar</span>
+          <span class="chip">Bot: @Sanzstrnokosmumerbot</span>
+          <span class="chip">Telegram: @Sanzxgoku</span>
+          <span class="chip">Instagram: @sanzshun</span>
+          <span class="chip">Website: snz.my.id</span>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>SANZ GOKU · Satu Bot, Banyak Solusi · snz.my.id</span>
+      <span class="display">SLIDE 08 / 08</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- BOTTOM CONTROLS -->
+<div id="controls">
+  <button class="btn" id="btn-prev" onclick="changeSlide(-1)">◀ Sebelumnya</button>
+  <span class="page-indicator display" id="page-num">SLIDE 1 / 8</span>
+  <button class="btn" id="btn-next" onclick="changeSlide(1)">Selanjutnya ▶</button>
+</div>
+
+<script>
+let current = 1;
+const total = 8;
+
+function updateSlide() {
+  document.querySelectorAll('.slide-frame').forEach((el, idx) => {
+    el.classList.toggle('active', idx + 1 === current);
+  });
+  document.getElementById('page-num').textContent = `SLIDE ${current} / ${total}`;
+  document.getElementById('btn-prev').disabled = current === 1;
+  document.getElementById('btn-next').disabled = current === total;
+}
+
+function changeSlide(direction) {
+  const next = current + direction;
+  if (next >= 1 && next <= total) {
+    current = next;
+    updateSlide();
+  }
+}
+
+// Keyboard arrows
+window.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'Space') changeSlide(1);
+  if (e.key === 'ArrowLeft') changeSlide(-1);
+});
+
+updateSlide();
+</script>
+
+</body>
+</html>
+
