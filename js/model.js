@@ -8,7 +8,7 @@ const Model = {
   githubUser: "Sanzxgoku",
 
   // Where the contact form delivers
-  contactEmail: "admin@snz.my.id",
+  contactEmail: "admin@snz.web.id",
 
   // App state (read/written by the Controller, displayed by the View)
   state: {
@@ -23,7 +23,7 @@ const Model = {
     {
       title: "VPS & Layanan Server Linux",
       tag: "Server & Cloud", color: "#e60012", live: true,
-      url: "https://snz.my.id", cta: "Kunjungi snz.my.id →",
+      url: "https://snz.web.id", cta: "Kunjungi snz.web.id →",
       img: "assets/projects/vps.png",
       desc: "Layanan penyediaan Virtual Private Server (VPS) berbasis Linux dengan performa andal, konfigurasi server yang optimal, serta pemeliharaan infrastruktur untuk kebutuhan hosting dan aplikasi.",
     },

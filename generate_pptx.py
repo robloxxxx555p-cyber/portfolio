@@ -89,7 +89,7 @@ def add_footer(slide, current_idx):
     tf_f = footer_box.text_frame
     tf_f.word_wrap = True
     p_f = tf_f.paragraphs[0]
-    p_f.text = f"SANZ GOKU  ·  Satu Bot, Banyak Solusi  ·  snz.my.id                           SLIDE {current_idx:02d} / 08"
+    p_f.text = f"SANZ GOKU  ·  Satu Bot, Banyak Solusi  ·  snz.web.id                           SLIDE {current_idx:02d} / 08"
     p_f.font.name = FONT_BODY
     p_f.font.size = Pt(10)
     p_f.font.color.rgb = COLOR_TEXT_MUTED
@@ -183,7 +183,7 @@ p_id2.font.size = Pt(15)
 p_id2.font.bold = True
 p_id2.font.color.rgb = COLOR_WHITE
 p_id3 = tf_id.add_paragraph()
-p_id3.text = "Domain: snz.my.id  ·  Bot: @Sanzstrnokosmumerbot  ·  Admin: @Sanzxgoku"
+p_id3.text = "Domain: snz.web.id  ·  Bot: @Sanzstrnokosmumerbot  ·  Admin: @Sanzxgoku"
 p_id3.font.name = FONT_BODY
 p_id3.font.size = Pt(11)
 p_id3.font.color.rgb = COLOR_TEXT_MUTED
@@ -222,7 +222,7 @@ if os.path.exists(PHOTO_PATH):
     p_pc1.font.color.rgb = RGBColor(17, 17, 17)
     
     p_pc2 = tf_pc.add_paragraph()
-    p_pc2.text = "Founder / Owner (Sanz)\nDomain: snz.my.id\nBot: @Sanzstrnokosmumerbot\nAdmin: @Sanzxgoku"
+    p_pc2.text = "Founder / Owner (Sanz)\nDomain: snz.web.id\nBot: @Sanzstrnokosmumerbot\nAdmin: @Sanzxgoku"
     p_pc2.font.name = FONT_BODY
     p_pc2.font.size = Pt(9.5)
     p_pc2.font.color.rgb = RGBColor(60, 60, 60)
@@ -599,7 +599,7 @@ p_cb1.font.size = Pt(11)
 p_cb1.font.color.rgb = COLOR_ACCENT_YELLOW
 
 p_cb2 = tf_cb.add_paragraph()
-p_cb2.text = "Bot Telegram: @Sanzstrnokosmumerbot  |  Admin: @Sanzxgoku  |  Instagram: @sanzshun  |  Domain: snz.my.id"
+p_cb2.text = "Bot Telegram: @Sanzstrnokosmumerbot  |  Admin: @Sanzxgoku  |  Instagram: @sanzshun  |  Domain: snz.web.id"
 p_cb2.font.name = FONT_TITLE
 p_cb2.font.size = Pt(12)
 p_cb2.font.bold = True
@@ -638,7 +638,7 @@ tech_active = [
     ("JavaScript & Node.js", "Bahasa pemrograman dan runtime utama dalam membangun logika bot, skrip otomatisasi, serta komunikasi API."),
     ("Telegram Bot API", "Protokol penghubung untuk interaksi chat bot @Sanzstrnokosmumerbot, menu tombol, dan notifikasi."),
     ("Pterodactyl Panel", "Sistem panel web berbasis container Docker untuk mempermudah kontrol server game dan bot secara mandiri."),
-    ("Cloudflare DNS & Proxy", "Manajemen domain snz.my.id, proteksi terhadap serangan DDoS, serta pengaturan routing subdomain.")
+    ("Cloudflare DNS & Proxy", "Manajemen domain snz.web.id, proteksi terhadap serangan DDoS, serta pengaturan routing subdomain.")
 ]
 
 for t_name, t_desc in tech_active:
@@ -718,7 +718,7 @@ plans = [
     ("03", "OTOMASI BOT (@Sanzstrnokosmumerbot)", "Menyelesaikan integrasi pemesanan mandiri, verifikasi QRIS otomatis, dan penyerahan kredensial/layanan langsung via bot."),
     ("04", "SISTEM PENCATATAN & PEMBUKUAN", "Menerapkan pencatatan transaksi terstruktur untuk memantau performa layanan, inventaris stok server, dan arus keuangan rapi."),
     ("05", "KEAMANAN & KEANDALAN SISTEM", "Memperkuat proteksi firewall server Linux, manajemen akses API yang aman, serta cadangan data (backup) rutin."),
-    ("06", "EKOSISTEM BERKELANJUTAN", "Mengintegrasikan website (snz.my.id), bot Telegram, dan panel server menjadi satu ekosistem bisnis digital yang stabil.")
+    ("06", "EKOSISTEM BERKELANJUTAN", "Mengintegrasikan website (snz.web.id), bot Telegram, dan panel server menjadi satu ekosistem bisnis digital yang stabil.")
 ]
 
 for i, (num_p, title_p, desc_p) in enumerate(plans):
@@ -843,7 +843,7 @@ contacts = [
     ("Bot Telegram", "@Sanzstrnokosmumerbot  (t.me/Sanzstrnokosmumerbot)"),
     ("Telegram Admin", "@Sanzxgoku  (t.me/Sanzxgoku)"),
     ("Instagram", "@sanzshun  (instagram.com/sanzshun)"),
-    ("Domain Bisnis", "snz.my.id")
+    ("Domain Bisnis", "snz.web.id")
 ]
 
 for label_c, val_c in contacts:
