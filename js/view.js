@@ -44,21 +44,33 @@ const View = {
   ransomize(el) {
     const text = el.dataset.ransom || el.textContent;
     el.textContent = "";
+    const isBig = el.closest("#big-name") !== null;
+
     [...text].forEach((c, i) => {
       const span = document.createElement("span");
       span.className = "ch display";
       span.textContent = c;
-      const h = this.hash(text + i);
+      const h = this.hash(text + i + c);
       const rot = (h % 17) - 8;                 // -8..8 degrees
-      const scale = 0.86 + ((h >> 3) % 30) / 100; // 0.86..1.15
+      const scale = 0.92 + ((h >> 3) % 20) / 100; // 0.92..1.12
       const dy = ((h >> 5) % 9) - 4;            // -4..4 px
       const t = `rotate(${rot}deg) scale(${scale}) translateY(${dy}px)`;
       span.style.setProperty("--t", t);
       span.style.transform = t;
-      const variant = (h >> 7) % 10;
-      if (variant === 0) span.classList.add("box");
-      else if (variant === 1) span.classList.add("boxw");
-      else if (variant === 2) span.classList.add("red");
+
+      if (isBig) {
+        // High-contrast alternating Persona 5 newspaper collage cutout boxes
+        const variants = text === "SANZ"
+          ? ["box", "boxw", "boxr", "box"]
+          : ["boxr", "boxw", "box", "boxr"];
+        span.classList.add(variants[i % variants.length]);
+      } else {
+        const v = (h >> 6) % 5;
+        if (v === 0) span.classList.add("box");
+        else if (v === 1) span.classList.add("boxw");
+        else if (v === 2) span.classList.add("boxr");
+        else if (v === 3) span.classList.add("red");
+      }
       el.appendChild(span);
     });
   },
@@ -129,9 +141,9 @@ const View = {
     this.els.repoStatus.textContent = statusText;
     this.els.repoGrid.innerHTML = "";
     repos.forEach((r, i) => {
-      const a = document.createElement("a");
+      const a = document.createElement("div");
       a.className = "card";
-      a.href = r.html_url; a.target = "_blank"; a.rel = "noopener";
+      a.style.cursor = "default";
       a.style.setProperty("--tilt", ((this.hash(r.name) % 5) - 2) * 0.8 + "deg");
       a.style.setProperty("--d", i * 70 + "ms");
       a.style.setProperty("--lc", model.langColors[r.language] || "#e60012");
@@ -139,12 +151,11 @@ const View = {
       const img = model.projectImages[r.name] || `assets/projects/${r.name}.png`;
       a.innerHTML = `
         ${this.cardThumb(img)}
-        <span class="lang">${r.language || "Repo"}</span>
+        <span class="lang">${r.language || "Proyek"}</span>
         <h3>${this.splitTitle(pretty)}</h3>
-        <p>${r.description || "No description yet, but the code speaks for itself."}</p>
+        <p>${r.description || ""}</p>
         <div class="meta">
-          <span>★ ${r.stargazers_count || 0}</span>
-          <span class="go">View on GitHub →</span>
+          <span>PROYEK & RISET</span>
         </div>`;
       this.els.repoGrid.appendChild(a);
     });

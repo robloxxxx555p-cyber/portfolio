@@ -1,14 +1,14 @@
 /* =====================================================================
    MODEL — the data and state of the app. Never touches the DOM.
-   Edit your content here: featured projects, skills, image overrides.
+   Portofolio Bisnis SANZ GOKU — Muhammad Sandika Akbar
    ===================================================================== */
 
 const Model = {
 
-  githubUser: "Omicron69",
+  githubUser: "Sanzxgoku",
 
-  // Where the contact form delivers (via formsubmit.co relay)
-  contactEmail: "mez.rahman777@gmail.com",
+  // Where the contact form delivers
+  contactEmail: "admin@snz.my.id",
 
   // App state (read/written by the Controller, displayed by the View)
   state: {
@@ -18,117 +18,104 @@ const Model = {
     skillsBuilt: false,
   },
 
-  // ---- Featured projects (hand-written, shown above the GitHub feed) ----
+  // ---- Featured services & products ----
   featured: [
     {
-      title: "BSL Fingerspelling: “Hands”",
-      tag: "Live App", color: "#3dff6e", live: true,
-      url: "https://bslgame.co.uk/", cta: "Play at bslgame.co.uk →",
-      img: "assets/projects/bsl.png",
-      desc: "A game that teaches you the BSL alphabet using nothing but your webcam. Built with React, Node.js, TensorFlow.js and MediaPipe hand tracking. This was my final year project and it scored an A+ at 87/100.",
+      title: "VPS & Layanan Server Linux",
+      tag: "Server & Cloud", color: "#e60012", live: true,
+      url: "https://snz.my.id", cta: "Kunjungi snz.my.id →",
+      img: "assets/projects/vps.png",
+      desc: "Layanan penyediaan Virtual Private Server (VPS) berbasis Linux dengan performa andal, konfigurasi server yang optimal, serta pemeliharaan infrastruktur untuk kebutuhan hosting dan aplikasi.",
     },
     {
-      title: "Steam Review Sentiment with Transformers",
-      tag: "NLP", color: "#e60012",
-      url: "https://github.com/Omicron69/Granular-Sentiment-Pipeline-Class-Weighted-Transformers-for-Steam-Reviews",
-      cta: "View on GitHub →",
-      img: "assets/projects/steam.png",
-      desc: "Fine-tuned DistilBERT, BERTweet and RoBERTa to sort Steam reviews into a custom six-class sentiment taxonomy, with class weighting to handle the imbalance. RoBERTa came out on top at 88.2% F1.",
+      title: "Panel Pterodactyl & Hosting",
+      tag: "Game/App Panel", color: "#3178c6", live: true,
+      url: "https://t.me/Sanzxgoku", cta: "Pesan via Telegram →",
+      img: "assets/projects/ptero.png",
+      desc: "Instalasi, konfigurasi, dan penyediaan panel Pterodactyl untuk pengelolaan server game, bot, dan aplikasi mandiri dengan kontrol resource yang fleksibel dan mudah digunakan.",
     },
     {
-      title: "DownloadGuard",
-      tag: "Security", color: "#f1e05a",
-      url: "https://github.com/Omicron69/DownloadGuard", cta: "View on GitHub →",
-      img: "assets/projects/downloadguard.png",
-      desc: "A Chrome extension that protects everyday users in real time. It watches for malicious downloads, phishing emails, deceptive links and QR code scams, all layered into one Manifest V3 extension.",
+      title: "Layanan Nokos & Verifikasi OTP",
+      tag: "Digital Service", color: "#f1e05a", live: true,
+      url: "https://t.me/Sanzstrnokosmumerbot", cta: "Order via Bot OTP →",
+      img: "assets/projects/otp.png",
+      desc: "Penyediaan nomor virtual (nokos) untuk kebutuhan verifikasi OTP berbagai platform digital secara instan via Bot @Sanzstrnokosmumerbot, didukung integrasi RumahOTP.",
     },
     {
-      title: "Medical Image Classification",
-      tag: "Deep Learning", color: "#3178c6",
-      url: "https://github.com/Omicron69/organsmnist-cnn-classification", cta: "View on GitHub →",
-      img: "assets/projects/medcnn.png",
-      desc: "Classifying organs in CT scans, from a baseline dense net to five custom CNNs to fine-tuned ResNet50 and EfficientNetB0, reaching 79% test accuracy on 25,000+ OrganSMNIST images.",
+      title: "Bot Telegram: @Sanzstrnokosmumerbot",
+      tag: "Automation", color: "#3dff6e", live: true,
+      url: "https://t.me/Sanzstrnokosmumerbot", cta: "Buka Bot Telegram →",
+      img: "assets/projects/bot.png",
+      desc: "Sistem bot Telegram resmi SANZ GOKU (@Sanzstrnokosmumerbot) dengan moto 'Satu Bot, Banyak Solusi' untuk otomatisasi katalog produk, layanan nomor OTP, cek status pesanan, dan transaksi.",
     },
   ],
 
   // Repos already shown in "featured" get hidden from the GitHub feed
   featuredRepoNames: [
-    "BritishFingerSpellingAI",
-    "Granular-Sentiment-Pipeline-Class-Weighted-Transformers-for-Steam-Reviews",
-    "DownloadGuard",
-    "organsmnist-cnn-classification",
+    "vps-management",
+    "pterodactyl-setup",
+    "telegram-bot-core",
+    "nokos-service",
   ],
 
-  // Shown if the GitHub API can't be reached
+  // Shown if the GitHub API can't be reached or for offline demo
   fallbackRepos: [
     {
-      name: "crime-analysis-montgomery-county", language: "Jupyter Notebook", stargazers_count: 0,
-      html_url: "https://github.com/Omicron69/crime-analysis-montgomery-county",
-      description: "Ten years of Montgomery County crime data, taken from a messy 90 MB government CSV to ten answered analytical questions, geospatial hotspot maps and a district safety ranking.",
+      name: "SOTP (sxgotp) - OTP Web Platform", language: "Next.js / React", stargazers_count: 0,
+      html_url: "https://github.com/Omicron69",
+      description: "Proyek pengembangan website layanan OTP mandiri menggunakan Next.js, Tailwind CSS, Vercel, dan Supabase. Berstatus sebagai proyek pengembangan tersendiri.",
     },
     {
-      name: "asthma-worsening-prediction", language: "MATLAB", stargazers_count: 0,
-      html_url: "https://github.com/Omicron69/asthma-worsening-prediction",
-      description: "Predicting worsening asthma symptoms from NHS primary-care data with SQL and MATLAB, following CRISP-DM. Compares four models on a heavily imbalanced clinical dataset.",
+      name: "Telegram-Business-Bot", language: "JavaScript", stargazers_count: 0,
+      html_url: "https://github.com/Omicron69",
+      description: "Sistem bot Telegram berbasis Node.js dan Telegram Bot API untuk menampilkan katalog layanan, menangani pesanan pelanggan, dan integrasi API.",
     },
     {
-      name: "Chronic-Kideney-Disease-Analyzer", language: "PHP", stargazers_count: 0,
-      html_url: "https://github.com/Omicron69/Chronic-Kideney-Disease-Analyzer",
-      description: "A healthcare tracking web app. I led the front-end and requirements analysis in a multidisciplinary team, and our solution improved patient diagnostics by 25%.",
+      name: "Digital-Products-Subdomain-Manager", language: "Node.js", stargazers_count: 0,
+      html_url: "https://github.com/Omicron69",
+      description: "Sistem pendukung pengelolaan produk digital, layanan domain/subdomain, serta integrasi Cloudflare API untuk kebutuhan pelanggan.",
     },
     {
-      name: "MSc-Washington-Crime-Analysis-with-Pandas", language: "Jupyter Notebook", stargazers_count: 0,
-      html_url: "https://github.com/Omicron69/MSc-Washington-Crime-Analysis-with-Pandas",
-      description: "Crime trend analysis of Washington D.C. public data. Reproducible Pandas notebooks with visual summaries written for people who do not code.",
+      name: "XS - Personal AI Assistant (Research)", language: "TypeScript", stargazers_count: 0,
+      html_url: "https://github.com/Omicron69",
+      description: "Konsep riset asisten AI pribadi (analisis file, riset web, smart note). Proyek teknologi terpisah di luar lini bisnis utama SANZ GOKU.",
     },
   ],
 
-  // Optional thumbnail overrides: repo name → image path.
-  // Anything not listed is looked up at assets/projects/<RepoName>.png
-  projectImages: {
-    // "DownloadGuard": "assets/projects/downloadguard.png",
-  },
+  // Optional thumbnail overrides
+  projectImages: {},
 
   langColors: {
     JavaScript: "#f1e05a", TypeScript: "#3178c6", Python: "#3572A5",
-    PHP: "#4F5D95", CSS: "#663399", HTML: "#e34c26",
-    "Jupyter Notebook": "#DA5B0B", MATLAB: "#e16737", Java: "#b07219", C: "#555", "C++": "#f34b7d",
+    "Next.js / React": "#000000", "Node.js": "#68a063", Linux: "#f34b7d",
+    HTML: "#e34c26", CSS: "#663399",
   },
 
-  // ---- Skills screen ----
+  // ---- Skills screen: Core Competencies & Technologies ----
   skills: [
-    { group: "AI · ML · Data Science", items: [
-      ["Python · pandas · NumPy", 92], ["TensorFlow / Keras · PyTorch", 88],
-      ["scikit-learn · XGBoost", 86], ["CNNs & Transfer Learning", 85],
-      ["NLP & Transformers", 82], ["Computer Vision · MediaPipe", 86],
+    { group: "Server & Infrastruktur", items: [
+      ["Linux VPS (Ubuntu / Debian)", 90], ["Panel Pterodactyl Management", 88],
+      ["Cloudflare DNS & CDN", 85], ["DigitalOcean / Cloud Infrastructure", 80],
+      ["Server Security & Maintenance", 84], ["Port & Firewall Configuration", 82],
     ]},
-    { group: "Web & Full-Stack", items: [
-      ["JavaScript / TypeScript", 86], ["React · React Native · Next.js", 84],
-      ["Node.js · REST APIs", 80], ["TensorFlow.js (in-browser ML)", 84],
-      ["PHP · SQL · PostgreSQL", 74], ["UX Design · Figma · Adobe XD", 82],
+    { group: "Bot & Pengembangan Sistem", items: [
+      ["JavaScript / Node.js", 86], ["Telegram Bot API", 92],
+      ["node-telegram-bot-api", 88], ["REST API & Axios Integration", 85],
+      ["Next.js / React / Supabase (SOTP)", 78], ["Automation & Scripting", 84],
     ]},
-    { group: "Cloud & Engineering", items: [
-      ["Git & GitHub", 88], ["AWS · Azure · GCP", 74],
-      ["Docker · Firebase", 76], ["Agile · PRINCE2 Agile", 80],
-      ["Tableau · Power BI", 72], ["Bash · PowerShell", 75],
+    { group: "Layanan & Integrasi Pihak Ketiga", items: [
+      ["RumahOTP API Integration", 88], ["Pakasir QRIS Payment Gateway", 82],
+      ["FayuPedia API Integration", 80], ["Subdomain & DNS Management", 85],
+      ["Boost Medsos & Digital Products", 84], ["Top Up Saldo Digital", 86],
     ]},
-    { group: "Spoken Languages", items: [
-      ["English · Bengali · Hindi · Urdu", 100], ["Japanese (JLPT N4)", 62], ["Mandarin", 30],
+    { group: "Operasional & Pelayanan Bisnis", items: [
+      ["Customer Service & Fast Response", 94], ["Alur Transaksi & Verifikasi Order", 90],
+      ["Komunikasi Transparan & Jujur", 95], ["Evaluasi & Riset Kebutuhan Pasar", 85],
     ]},
   ],
 
   // ---- Data fetching ----
   async fetchRepos() {
-    const skip = new Set(this.featuredRepoNames);
-    try {
-      const res = await fetch(
-        `https://api.github.com/users/${this.githubUser}/repos?per_page=100&sort=updated`
-      );
-      if (!res.ok) throw new Error(res.status);
-      const repos = (await res.json()).filter(r => !r.fork && !skip.has(r.name));
-      return { repos, live: true };
-    } catch {
-      return { repos: this.fallbackRepos.filter(r => !skip.has(r.name)), live: false };
-    }
+    return { repos: this.fallbackRepos, live: false };
   },
 };
