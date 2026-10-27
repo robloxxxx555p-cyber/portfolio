@@ -67,6 +67,22 @@ body{
 }
 .slide-frame.active{display:flex;flex-direction:column;}
 
+#slide-1 {
+  background: linear-gradient(to right, rgba(11,11,14,0.95) 0%, rgba(11,11,14,0.85) 60%, rgba(11,11,14,0.3) 100%), url('assets/menus/home.jpg') right center / cover no-repeat;
+}
+#slide-2 {
+  background: linear-gradient(to right, rgba(11,11,14,0.35) 0%, rgba(11,11,14,0.92) 35%, rgba(11,11,14,0.95) 100%), url('assets/menus/about.jpg') left center / cover no-repeat;
+}
+#slide-3, #slide-4, #slide-7 {
+  background: repeating-linear-gradient(115deg, #e60012 0 46px, #a3000c 46px 52px, #e60012 52px 120px, #c4000f 120px 126px);
+}
+#slide-5, #slide-8 {
+  background: linear-gradient(rgba(11,11,14,0.84), rgba(11,11,14,0.88)), url('assets/menus/contact.jpg') center / cover no-repeat;
+}
+#slide-6 {
+  background: linear-gradient(rgba(11,11,14,0.84), rgba(11,11,14,0.88)), url('assets/menus/skills.jpg') center / cover no-repeat;
+}
+
 /* SLIDE HEADER & FOOTER */
 .slide-header{
   padding:16px 28px 8px;display:flex;justify-content:space-between;align-items:flex-start;
@@ -94,7 +110,8 @@ body{
 
 /* SLIDE 2 PROFILE */
 .profile-grid{display:grid;grid-template-columns:220px 1fr;gap:22px;height:100%;}
-.polaroid{background:#fff;color:#111;padding:8px;border:2px solid var(--red);text-align:center;box-shadow:6px 6px 0 rgba(0,0,0,.5);height:max-content;}
+.polaroid{background:#fff;color:#111;padding:8px 8px 14px;border:2px solid var(--red);text-align:center;box-shadow:6px 6px 0 rgba(0,0,0,.5);height:max-content;position:relative;transform:rotate(-2deg);}
+.polaroid::before{content:"";position:absolute;top:-10px;left:30%;width:70px;height:22px;background:rgba(230,0,18,0.92);transform:rotate(-6deg);box-shadow:0 2px 4px rgba(0,0,0,.3);z-index:2;}
 .polaroid img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;margin-bottom:8px;}
 .polaroid h4{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;}
 .polaroid p{font-size:11px;color:#555;}
